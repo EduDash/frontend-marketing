@@ -1,14 +1,18 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router } from 'react-router-dom';
+import NavigationContextProvider from './context/NavigationContext';
+import MainView from './MainView';
 
 function App() {
   return (
     <Router>
-      <Navbar />
-      <div className='flex justify-center items-center h-screen'>
-        <h1>EduDash</h1>
-      </div>
+      <NavigationContextProvider>
+        <Navbar />
+        <div className='flex justify-center'>
+          <MainView />
+        </div>
+      </NavigationContextProvider>
     </Router>
   );
 }
